@@ -3,6 +3,9 @@
 # Install:
 #   sudo apt install s3cmd
 
+
+source scripts/locking.sh
+
 set -e
 STAGEDIR=`mktemp -d /tmp/mkbackups.XXXX`
 USED=`df -P /tmp  |grep ^/ | perl -pe 's/.*?(\d+)%.*$/$1/g'`
