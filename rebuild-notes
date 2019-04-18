@@ -4,6 +4,7 @@
 mkdir ~/working
 cd ~/working
 git clone https://github.com/americanwookie/backup-tools.git
+#Install cronjobs
 4. Build hass:
 cd ~/working
 git clone https://github.com/americanwookie/hass-custom.git #cur at 5ee6830f74c3e82e7f783333b9209e7ac21430b5
@@ -28,5 +29,6 @@ chown 1001:1001 ~/bindirs/smokeping/data
 sudo docker start smokeping
 9. Start unifi:
 sudo docker run -d --name="unifi-api" unifi-api
+#Install cronjobs
 10. Start hass:
 sudo docker run -d --name="home-assistant-2019" -v ~/binddirs/hass-config:/config -v /etc/localtime:/etc/localtime:ro --net=host --device=/dev/ttyACM0:/dev/ttyACM0:rwm --restart unless-stopped scott-hass
