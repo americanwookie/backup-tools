@@ -17,9 +17,12 @@ sudo docker build -t unifi-api .
 6. Create smokeping container
 sudo docker create --name=smokeping -e PUID=1001 -e PGID=1001 -e TZ=America/Chicago -p 80:80 -v /home/pi/binddirs/smokeping/config:/config -v /home/pi/binddirs/smokeping/data:/data --restart unless-stopped linuxserver/smokeping:arm32v6-latest
 7. Populate ~/binddirs
-mkdir -p ~/bindirs/hass-config
-mkdir -p ~/bindirs/smokeping/{data,config}
-chown 1001:1001 ~/bindirs/smokeping/{data,config}
+mkdir ~/binddirs
+cd ~/binddirs
+git clone 'https://github.com/americanwookie/hass-config.git'
+git clone 'https://github.com/americanwookie/smokeping.git'
+mkdir ~/bindirs/smokeping/data
+chown 1001:1001 ~/bindirs/smokeping/data
 #TODO recover backups from s3 for smokeping data
 8. Start smokeping:
 sudo docker start smokeping
