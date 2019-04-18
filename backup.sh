@@ -3,7 +3,7 @@
 # Install:
 #   sudo apt install s3cmd
 
-
+cd `/usr/bin/dirname $0`
 source scripts/locking.sh
 
 set -e
